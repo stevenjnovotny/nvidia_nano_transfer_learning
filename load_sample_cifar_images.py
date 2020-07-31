@@ -7,7 +7,7 @@ directory
 """
 
 
-from keras.datasets import cifar10
+from tensorflow.keras.datasets import cifar10
 from sklearn.utils import shuffle
 import numpy as np
 from PIL import Image

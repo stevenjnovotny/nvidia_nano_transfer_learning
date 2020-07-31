@@ -1,23 +1,23 @@
-from keras.layers import Input, Lambda
+from tensorflow.keras.layers import Input, Lambda
 import tensorflow as tf
 
 # Loads in InceptionV3  -- could instead use resnet, vgg, etc.
-from keras.applications.inception_v3 import InceptionV3
+from tensorflow.keras.applications.inception_v3 import InceptionV3
 #from keras.applications.resnet50 import ResNet50
 #from keras.applications.vgg19 import VGG19
 
 # Imports fully-connected "Dense" layers & Global Average Pooling
-from keras.layers import Dense, GlobalAveragePooling2D
+from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 
-from keras.models import Model
+from tensorflow.keras.models import Model
 
 from sklearn.utils import shuffle
 from sklearn.preprocessing import LabelBinarizer
-from keras.datasets import cifar10
+from tensorflow.keras.datasets import cifar10
 
 # Use a generator to pre-process our images for ImageNet
-from keras.preprocessing.image import ImageDataGenerator
-from keras.applications.inception_v3 import preprocess_input
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.applications.inception_v3 import preprocess_input
 #from keras.applications.vgg19 import preprocess_input
 
 """

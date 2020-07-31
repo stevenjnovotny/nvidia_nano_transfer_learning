@@ -11,9 +11,9 @@ load pre-trained model
 from tensorflow import keras
 import tensorflow as tf
 import numpy as np
-from keras.preprocessing import image
-from keras.applications.inception_v3 import decode_predictions
-from keras.applications.inception_v3 import preprocess_input
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.inception_v3 import decode_predictions
+from tensorflow.keras.applications.inception_v3 import preprocess_input
 
 start = time.time()
 model = keras.models.load_model('nano_transfer_model', custom_objects={"tf": tf, "input_size": 139})
