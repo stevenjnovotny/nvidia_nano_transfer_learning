@@ -6,3 +6,6 @@ The model was saved and run with the load_run_model.py file on the nano.
 [//]: # (Image References)
 [image1]: ./cifar_results.png "model"
 
+The following shows the results on random images from the cifar10 validation set.
+
+![alt text][image1]
