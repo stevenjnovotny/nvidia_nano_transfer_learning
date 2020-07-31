@@ -13,7 +13,7 @@ The following shows the results on random images from the cifar10 validation set
 
 The file load_sample_cifar_images.py was used to generate the random sample of images.
 
-# Notes:
+## Notes:
 
 In order to get the nano_transfer_learning_example.py to run, I needed to run the following to avoid a "cannot allocate memory in the TLS block" error:
 
