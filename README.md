@@ -9,3 +9,6 @@ The model was saved and run with the load_run_model.py file on the nano.
 The following shows the results on random images from the cifar10 validation set.
 
 ![alt text][image1]
+
+
+The file load_sample_cifar_images.py was used to generate the random sample of images.
