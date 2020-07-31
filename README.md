@@ -12,3 +12,12 @@ The following shows the results on random images from the cifar10 validation set
 
 
 The file load_sample_cifar_images.py was used to generate the random sample of images.
+
+# Notes:
+
+In order to get the nano_transfer_learning_example.py to run, I needed to run the following to avoid a "cannot allocate memory in the TLS block" error:
+
+export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1
+
+Also, trying to train on the nano led to a "Resource Exhausted" error. Therefore, model training was done on a macbook pro and loading/running was done on the nano.
+
