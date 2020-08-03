@@ -20,6 +20,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.applications.inception_v3 import preprocess_input
 #from keras.applications.vgg19 import preprocess_input
 
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
+
 """
 Example using Inception V3, although you can use the same techniques with any of the models 
 in Keras Applications. 
