@@ -34,12 +34,17 @@ as well as a Global Average Pooling layer.
 Drop layers from a model with model.layers.pop(). Before, check out what the actual layers of 
 the model are with Keras's .summary() function.
 
+Notes:
+If a "...TLS block" error occurs, run the following
+$ export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1
+
 """
 
 # Set a couple flags for training
 freeze_flag = True  # `True` to freeze layers, `False` for full training
 weights_flag = 'imagenet' # 'imagenet' or None
 preprocess_flag = True # Should be true for ImageNet pre-trained typically
+save_path = 'transfer_model'
 
 # Use smaller than the default 299x299x3 input for InceptionV3
 # which will speed up training. Keras v2.0.9 supports down to 139x139x3
@@ -134,6 +139,7 @@ model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['accur
 
 # Check the summary of this new model to confirm the architecture
 model.summary()
+model.save(save_path)
 
 """
 prep data 
@@ -170,19 +176,19 @@ else:
 Train the model
 """
 
-save_path = 'nano_transfer_model'
-stopper = EarlyStopping(monitor='val_acc', min_delta=0.0003, patience=5)
+stopper = EarlyStopping(monitor='val_accuracy', min_delta=0.0003, patience=5)
 checkpoint = ModelCheckpoint(filepath=save_path, monitor='val_loss', save_best_only=True)
 
 batch_size = 32
-epochs = 20
+epochs = 10
 # no callbacks since only are using 5 epochs 
 model.fit_generator(datagen.flow(X_train, y_one_hot_train, batch_size=batch_size), \
                     steps_per_epoch=len(X_train)/batch_size, epochs=epochs, verbose=1, \
                     validation_data=val_datagen.flow(X_val, y_one_hot_val, batch_size=batch_size), \
                     validation_steps=len(X_val)/batch_size, \
-                    callbacks=[checkpoint, stopper])
+                    callbacks=[stopper])
 
+model.save(save_path)
 """
 Conclusions: 
 * CIFAR-10 is a fairly tough dataset 

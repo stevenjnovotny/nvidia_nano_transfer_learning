@@ -16,7 +16,7 @@ from tensorflow.keras.applications.inception_v3 import decode_predictions
 from tensorflow.keras.applications.inception_v3 import preprocess_input
 
 start = time.time()
-model = keras.models.load_model('nano_transfer_model', custom_objects={"tf": tf, "input_size": 139})
+model = keras.models.load_model('transfer_model', custom_objects={"tf": tf, "input_size": 139})
 model.summary()
 print( 'model loading time: %.2f seconds\n' % (time.time() - start))
 
@@ -69,7 +69,7 @@ for ix, item in enumerate(image_paths):
 
 
 
-print( 'model loading time: %.2f seconds\n' % (time.time() - start))
+print( 'classification time: %.2f seconds\n' % (time.time() - start))
 plt.subplots_adjust(wspace=None, hspace=0.65)
 
 plt.show(block=True)
